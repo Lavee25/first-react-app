@@ -1,0 +1,11 @@
+input {
+    display: block;
+    padding: 1em;
+    margin: 10px;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    border-radius: 500px;
+}

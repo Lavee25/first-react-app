@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './playbutton.css'
-function Playbutton({children,onPlay,onPause}){
+function Playbutton({ children,onPlay,onPause}){
     const [playing,setPlaying]=useState(false);
    
     function handleclick(e){
@@ -10,8 +10,10 @@ function Playbutton({children,onPlay,onPause}){
         setPlaying(!playing)
     }
  return(
-    <button  onClick={handleclick}>{children}:{playing?'<':'||'}</button>
+    <button  onClick={handleclick}>{playing?'play <':'pause ||'}</button>
  )
 }
 export default Playbutton;
+
+
 

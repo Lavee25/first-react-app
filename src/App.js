@@ -3,24 +3,21 @@ import './App.css';
 import Playbutton from './components/playbutton';
 import Video from './components/video';
 import videodb from './data/data';
+import AddVideo from './components/AddVideo';
+
   
 function App(){
-      const[videos,setVideos]=useState(videodb);      
-      const newVideoData = {
-        id:videos.length+1,
-        title:"new video",
-        views:"100k",
-        time:"2 year ago",
-        channel:" abc tutorial",
-        varified:"true"
-      }
-    return (
+    const[videos,setVideos]=useState(videodb);  
+       function addVideos(video){
+        setVideos([
+          ...videos,{...video,id:videos.length+1}
+        ]);
+
+    }
+      return (
         <div className='App'>
-            <div>
-            <button onClick={()=>{
-              setVideos([...videos,newVideoData]);
-            }}>Add Videos</button>
-          </div>
+         <div><AddVideo addVideos={addVideos}/></div>
+           
           {videos.map(video=>
             (<Video
                  id={video.id}
@@ -39,4 +36,5 @@ function App(){
       );
     }
 export default App;
+
 

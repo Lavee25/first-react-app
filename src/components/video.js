@@ -1,6 +1,7 @@
 import './video.css';
 import Counter from'./counter';
 
+
 function Video({id,title,channel,views,time,varified,children}){
 return(
 <div>
@@ -11,10 +12,10 @@ return(
         <div className="title">{title} </div>
         < div className="channel">{channel} {varified && '✔️' } </div>
         <div className="views">
-        {views}viws<span>.</span>{time}
+        {views}views<span>.</span>{time}
         </div>
         <div>
-          {children}
+         {children}
         </div>
       <div> <Counter></Counter></div> 
    </div>
