@@ -2,24 +2,25 @@ import React, { useState } from 'react'
 
 import'./AddVideo.css'
 
-function AddVideo({addVideos}){
+function AddVideo({addNewVideos}){
 
-  const[video,setVideo]=useState( {
-     time:"1 year ago" ,
-     channel:"k abc tutorial" ,
-     varified:"true"},)
+  const[video,setVideo]=useState({
+    time:"1 year ago" ,
+    channel:"k abc tutorial" ,
+    varified:"true"} )
+
     function handleSubmit(e){
       e.preventDefault();
-      addVideos(video)
-      
-      }
+      console.log(video);
+      addNewVideos(video)
+     
+    }
    function handleChange(e){
-    //console.log(e.target.name,e.target.value)
-    setVideo({...video,
+     e.preventDefault();
+      setVideo({...video,
       [e.target.name] : e.target.value
     })
-
-    }
+  }
 
 
 
