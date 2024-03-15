@@ -2,8 +2,14 @@ import React from 'react'
 import Playbutton from './playbutton';
 import Video from './video';
 
-function VideoList({videos,deleteVideo}){
- return (
+function VideoList({videos,deleteVideo,editVideo}){
+ function handlePlay(video){
+  console.log('playing..',video.title)
+ }
+ function handlePause(video){
+  console.log('playing..',video.title)
+ }
+return (
     <>
     {videos.map((video)=>
         <Video
@@ -13,9 +19,11 @@ function VideoList({videos,deleteVideo}){
              time={video.time}
              channel={video.channel} 
              varified={video.varified}
-            deleteVideo={deleteVideo}
+             deleteVideo={deleteVideo}
+             editVideo={editVideo}
            >
-            <Playbutton onPlay={()=>console.log('playing...',video.title)} onPause={()=>console.log('pauseed',video.title)}>{video.title}</Playbutton>
+            <Playbutton  onPlay={handlePlay} onPause={handlePause}/>{video.title}
+          
         </Video>)
         }
      <div style={{clear:"both"}}></div>

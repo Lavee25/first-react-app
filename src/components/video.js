@@ -3,12 +3,13 @@ import Counter from'./counter';
 import Playbutton from './playbutton';
 
 
-function Video({id,title,channel,views,time,varified,deleteVideo}){
+function Video({id,title,channel,views,time,varified,deleteVideo,editVideo}){
  
 return(
 <div>
     <div className='container'>
       <button className='close'onClick={()=>deleteVideo(id)}>X</button>
+      <button className='edit'onClick={()=>editVideo(id)}>edit</button>
          <div className='pic'>
             <img 
             src={`https://picsum.photos/id/${id}/200/300`}
