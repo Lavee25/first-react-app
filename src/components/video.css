@@ -4,12 +4,15 @@
     float:left;
     text-align:center;
     position:relative;
+    width:auto;
+   
+
 
     
 }
 .pic img{
     width:100%;
-    width: 100%;
+  
     border-block:inherit ;
 
 }

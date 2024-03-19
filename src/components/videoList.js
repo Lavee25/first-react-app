@@ -27,9 +27,11 @@ return (
         </Video>)
         }
      <div style={{clear:"both"}}></div>
-    </> 
+    </>
+    
   )
+ 
 }
-
+ 
 
 export default VideoList

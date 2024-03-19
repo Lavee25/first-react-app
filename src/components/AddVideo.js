@@ -12,7 +12,7 @@ const initialvideoState={
 }
 
 
-  function AddVideo({addNewVideos,updateVideo,editableVideo}){
+  function AddVideo({addVideos,updateVideo,editableVideo}){
   const[video,setVideo]=useState(initialvideoState)
   
 
@@ -22,7 +22,7 @@ const initialvideoState={
       if(editableVideo){
        updateVideo(video)
       }else{
-        addNewVideos(video)
+        addVideos(video)
       }
       setVideo(initialvideoState) //  here setVideo(initialvideoState) reset input field empty once one video is added
      

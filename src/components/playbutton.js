@@ -9,6 +9,7 @@ function Playbutton({ onPlay,onPause}){
         e.stopPropagation()
         if(playing) onPause();
         else onPlay(); 
+        console.log("type",typeof onPlay);
         setPlaying(!playing)
     }
  return(
