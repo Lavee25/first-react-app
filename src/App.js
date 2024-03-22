@@ -1,12 +1,15 @@
-import { useReducer, useState } from 'react';
+import {useReducer, useState } from 'react';
 import './App.css';
 import videodb from './data/data';
 import AddVideo from './components/AddVideo';
 import VideoList from './components/VideoList';
-
+import ThemeContext from './components/Context/themeContext';
+import videosContext from './components/Context/videosContext';
+import videoDispatchContext from './components/Context/videodispatchContext';
 
 function App(){
   const[editableVideo,seteditableVideo]=useState(null)
+  const[mode,setMode]=useState('darkMode');
   function videoReducer(videos,action){
     switch(action.type){
       case'ADD':
@@ -26,29 +29,21 @@ function App(){
     }
   }
   const[videos,dispatch]=useReducer(videoReducer,videodb)    //useReducer hook state reduce 
- 
-  
-  function addVideos(video){
-    dispatch({type:'ADD',payload:video})    
-  }
-        function deleteVideo(id){
-          dispatch({type:'DELETE',payload:id}) 
-         
-          }
-          function editVideo(id){
-            console.log('id',id);
-             seteditableVideo( videos.find(video => video.id=== id));
-            }
-         function updateVideo(video){  
-          dispatch({type:'UPDATE',payload:video})
-          }
-      return (
-      <>
-        <div className='App' onClick={()=>{console.log('App')}}>
-        <AddVideo addVideos={addVideos} updateVideo={updateVideo} editableVideo={editableVideo}></AddVideo>
-        <VideoList deleteVideo={deleteVideo} editVideo={editVideo} videos={videos}></VideoList>
+       function editVideo(id){
+        seteditableVideo( videos.find(video => video.id=== id));
+       }
+        return (
+      <ThemeContext.Provider value={mode}>
+        <videosContext.Provider value={videos}>
+        <videoDispatchContext.Provider value={dispatch}>
+        <div className={`App ${mode}`}>
+        <button className="mode" onClick={()=>setMode(mode==='darkMode'?'lightMode':'darkMode')}>{mode==='darkMode'?'lightMode' :'darkMode'}</button> 
+        <AddVideo editableVideo={editableVideo}></AddVideo>
+        <VideoList editVideo={editVideo}></VideoList>
         </div>
-      </> 
+        </videoDispatchContext.Provider>
+        </videosContext.Provider>
+      </ThemeContext.Provider>
       );
     }
 export default App;

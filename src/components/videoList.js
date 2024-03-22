@@ -1,14 +1,11 @@
-import React from 'react'
+import {useContext,React} from 'react'
 import Playbutton from './playbutton';
 import Video from './video';
+import videosContext from './Context/videosContext'
 
-function VideoList({videos,deleteVideo,editVideo}){
- function handlePlay(video){
-  console.log('playing..',video.title)
- }
- function handlePause(video){
-  console.log('playing..',video.title)
- }
+function VideoList({editVideo}){
+const videos=useContext(videosContext)
+console.log("videos:", videos) 
 return (
     <>
     {videos.map((video)=>
@@ -19,12 +16,11 @@ return (
              time={video.time}
              channel={video.channel} 
              varified={video.varified}
-             deleteVideo={deleteVideo}
              editVideo={editVideo}
-           >
-            <Playbutton  onPlay={handlePlay} onPause={handlePause}/>{video.title}
-          
-        </Video>)
+            >
+          <Playbutton/>
+        </Video>
+        )
         }
      <div style={{clear:"both"}}></div>
     </>

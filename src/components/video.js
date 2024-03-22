@@ -1,14 +1,19 @@
 import './video.css';
 import Counter from'./counter';
 import Playbutton from './playbutton';
+import { useContext } from 'react';
+import ThemeContext from './Context/themeContext';
+import videoDispatchContext from './Context/videodispatchContext';
 
 
-function Video({id,title,channel,views,time,varified,deleteVideo,editVideo}){
- 
+
+function Video({id,title,channel,views,time,varified,editVideo}){
+ const themeContext=useContext(ThemeContext)
+ const dispatch=useContext(videoDispatchContext)
 return(
 <div>
-    <div className='container'>
-      <button className='close'onClick={()=>deleteVideo(id)}>X</button>
+    <div className={`container ${themeContext}`}>
+      <button className='close'onClick={()=>dispatch({type:'DELETE',payload:id})}>X</button>
       <button className='edit'onClick={()=>editVideo(id)}>edit</button>
          <div className='pic'>
             <img 

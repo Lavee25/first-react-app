@@ -1,29 +1,32 @@
+
 .container{
     max-width:max-content;
     margin:0 0.4em;
-    float:left;
+   float:left;
     text-align:center;
     position:relative;
     width:auto;
-   
-
-
-    
 }
+.container.darkMode{
+    color:#ccc;
+   
+}
+.container.lightMode{
+    color: black; 
+     
+   
+} 
+
 .pic img{
     width:100%;
-  
-    border-block:inherit ;
-
-}
+     border-block:inherit ;}
 .title{
    font-weight: bold;
    margin-bottom: 1em;
-   color:black;
+   
 }
 .channel,.views{
     font-size:medium;
-    color:black;
     margin-bottom: 0.2em;
 }
 .vies span{
